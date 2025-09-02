@@ -16,10 +16,19 @@
       color: white;
     }
 
+    .lang-switcher {
+      position: fixed;
+      top: 2%;      
+      right: 2%;    
+      display: flex;
+      flex-direction: column; 
+      gap: 10px; 
+      z-index: 1000;
+    }
+
     .lang-btn {
-      padding: 1% 2%;
-      margin: 1%;
-      font-size: 1.5vw;
+      padding: 10px 15px;
+      font-size: 1vw;
       cursor: pointer;
       border: none;
       border-radius: 5px;
@@ -32,7 +41,7 @@
     }
 
     .content {
-      margin-top: 5%;
+      text-align: center;
       font-size: 2vw;
     }
 
@@ -124,48 +133,63 @@
   </style>
 </head>
  <body>
-    <h1>Беременость и аборты</h1> 
+  <section>
+  <div class="lang-switcher">
+    <button class="lang-btn" onclick="setLanguage('ru')">Русский</button>
+    <button class="lang-btn" onclick="setLanguage('en')">English</button>
+  </div>
+  <script>
+  function setLanguage(lang) {
+    document.querySelectorAll("[data-ru]").forEach(el => {
+      let text = el.getAttribute(`data-${lang}`);
+      if (text && text.trim() !== "") {
+        el.textContent = text;
+      }
+    });
+  }
+  </script>
+    <h1 data-ru="Беременость и аборты" data-en="Pregnancy and abortion">Беременость и аборты</h1> 
         <section>
           <div class="back-button">
-            <a href="https://chickenbrik.github.io/menu/">Назад</a>
+            <a data-ru="Назад" data-en="Back" href="https://chickenbrik.github.io/menu/">Назад</a>
           </div>
         </section>
         <section>
-          <h3>Этапы беременности</h3>
+          <h3 data-ru="Этапы беременности" data-en="Stages of pregnancy">Этапы беременности</h3>
           <img src="https://www.primamedica.ru/upload/iblock/691/a6dw4h5ujd6bw6jhnl849hqubqhqhzpe.jpg">
-          <p>Первый триместр (до 3 месяцев):</p>
+          <p data-ru="Первый триместр (до 3 месяцев):" data-en="First trimester (up to 3 months):">Первый триместр (до 3 месяцев):</p>
            <ul>
-            <li>Малыш только начинает формироваться</li>
-            <li>Часто бывает токсикоз (тошнота, слабость)</li>
+            <li data-ru="Малыш только начинает формироваться" data-en="The baby is just beginning to form.">Малыш только начинает формироваться</li>
+            <li data-ru="Часто бывает токсикоз (тошнота, слабость)" data-en="Toxicosis (nausea, weakness) is common.">Часто бывает токсикоз (тошнота, слабость)</li>
            </ul>
-          <p>Второй триместр (4–6 месяц):</p>
+          <p data-ru="Второй триместр (4–6 месяц):" data-en="Second trimester (4–6 months):">Второй триместр (4–6 месяц):</p>
             <ul>
-             <li>Малыш растёт</li>
-             <li>Живот становится заметным</li>
-             <li>Может появиться первое шевеление</li>
+             <li data-ru="Малыш растёт" data-en="The baby is growing">Малыш растёт</li>
+             <li data-ru="Живот становится заметным" data-en="The belly becomes noticeable">Живот становится заметным</li>
+             <li data-ru="Может появиться первое шевеление" data-en="The first movement may appear">Может появиться первое шевеление</li>
             </ul>
-          <p>Третий триместр (7–9):</p>
+          <p data-ru="Третий триместр (7–9):" data-en="Third trimester (7–9):">Третий триместр (7–9):</p>
             <ul>
-              <li>Организм готовится к родам</li>
-              <li>Малыш уже почти готов к жизни вне тела</li>
+              <li data-ru="Организм готовится к родам" data-en="The body prepares for childbirth">Организм готовится к родам</li>
+              <li data-ru="Малыш уже почти готов к жизни вне тела" data-en="The baby is almost ready for life outside the body">Малыш уже почти готов к жизни вне тела</li>
             </ul>
-          <p>Подробнее можно узнать <a target="_blank" href="https://ru.wikipedia.org/wiki/%D0%A2%D0%B5%D1%87%D0%B5%D0%BD%D0%B8%D0%B5_%D0%B1%D0%B5%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8_%D1%83_%D1%87%D0%B5%D0%BB%D0%BE%D0%B2%D0%B5%D0%BA%D0%B0"> здесь</a>
+          <p> <span data-ru="Подробнее можно узнать" data-en="You can find out more"> </span> <a target="_blank" href="https://ru.wikipedia.org/wiki/%D0%A2%D0%B5%D1%87%D0%B5%D0%BD%D0%B8%D0%B5_%D0%B1%D0%B5%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8_%D1%83_%D1%87%D0%B5%D0%BB%D0%BE%D0%B2%D0%B5%D0%BA%D0%B0" data-ru="здесь" data-en="here"> здесь</a></p>
         </section>
         <section>
-          <h3>Виды аборта</h3>
+          <h3 data-ru="Виды аборта" data-en="Types of abortion">Виды аборта</h3>
           <img src="https://crblen.ru/images/med-prof/2024/abort/hirab.jpg">
-          <p>Таблетки — до 9 недель. Просто выпиваешь, и всё выходит само.</p>
-          <p>Вакуум — до 12 недель. Врач делает всё через специальный аппарат.</p>
-          <p>Хирургический (выскабливание) — после 12 недель, если есть серьёзные причины.</p>
-          <p>Подробнее можно узнать <a target="_blank" href="https://ru.wikipedia.org/wiki/%D0%90%D0%B1%D0%BE%D1%80%D1%82"> здесь</a>
+          <p data-ru="Таблетки — до 9 недель. Просто выпиваешь, и всё выходит само." data-en="Pills - up to 9 weeks. Just take them and everything comes out on its own.">Таблетки — до 9 недель. Просто выпиваешь, и всё выходит само.</p>
+          <p data-ru="Вакуум — до 12 недель. Врач делает всё через специальный аппарат." data-en="Vacuum - up to 12 weeks. The doctor does everything through a special device.">Вакуум — до 12 недель. Врач делает всё через специальный аппарат.</p>
+          <p data-ru="Хирургический (выскабливание) — после 12 недель, если есть серьёзные причины." data-en="Surgical (curettage) - after 12 weeks, if there are serious reasons.">Хирургический (выскабливание) — после 12 недель, если есть серьёзные причины.</p>
+          <p> <span data-ru="Подробнее можно узнать" data-en="You can find out more"> </span> <a target="_blank" href="https://ru.wikipedia.org/wiki/%D0%90%D0%B1%D0%BE%D1%80%D1%82" data-ru="здесь" data-en="here"> здесь</a></p>
         </section>
         <section>
-          <h3> Когда можно делать аборт</h3>
+          <h3 data-ru="Когда можно делать аборт" data-en="When can you have an abortion?"> Когда можно делать аборт</h3>
           <img src="https://www.medcentrservis.ru/upload/cssinliner_webp/medialibrary/fb0/hirurgicheskiy_abort_2.webp">
-          <p>До 12 недель — можно по своему желанию</p>
-          <p>До 22 недель — если беременность опасна или есть проблемы</p>
-          <p>После 22 недель — только если жизнь под угрозой</p>
-          <p>Подробнее можно узнать <a target="_blank" href="https://ru.wikipedia.org/wiki/%D0%90%D0%B1%D0%BE%D1%80%D1%82"> здесь</a>
+          <p data-ru="До 12 недель — можно по своему желанию" data-en="Up to 12 weeks - at your discretion">До 12 недель — можно по своему желанию</p>
+          <p data-ru="До 22 недель — если беременность опасна или есть проблемы" data-en="Up to 22 weeks - if the pregnancy is dangerous or there are problems">До 22 недель — если беременность опасна или есть проблемы</p>
+          <p data-ru="После 22 недель — только если жизнь под угрозой" data-en="After 22 weeks - only if life is at risk">После 22 недель — только если жизнь под угрозой</p>
+          <p> <span data-ru="Подробнее можно узнать" data-en="You can find out more"></span> <a target="_blank" href="https://ru.wikipedia.org/wiki/%D0%90%D0%B1%D0%BE%D1%80%D1%82" data-ru="здесь" data-en="here"> здесь</a></p>
         </section>
  </body>
 </html>
